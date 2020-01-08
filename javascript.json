@@ -1,0 +1,208 @@
+{
+	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Print to console": {
+		"prefix": "logg",
+		"body": [
+			"console.log($1);",
+		],
+		"description": "Log output to console"
+	},
+	"Print variable to console": {
+		"prefix": "logvar",
+		"body": [
+			"console.log(`$1 is ... ${$1}`);",
+		],
+		"description": "Log variable output to console"
+	},
+	"Function stub": {
+		"prefix": "func",
+		"body": [
+			"const $1 = ($2) => ",
+		],
+		"description": "Provide fat-arrow function stub"
+	},
+	"Make a class": {
+		"prefix": "reactclass",
+		"body": [
+			"class $1 {",
+			"	constructor($2) {",
+			"		this._$2 = $2;",
+			"		}",
+			"",
+			"	get $2() {",
+			"		return this._$2;",
+			"	}",
+			"",
+			"}",
+		],
+		"description": "stub for making a classs"
+	},
+	"ReactImport": {
+		"prefix": "reactimport",
+		"body": [
+			"import React from 'react';",
+			"import ReactDOM from 'react-dom';"
+		],
+		"description": "Render React"
+	},
+	"ReactDOM": {
+		"prefix": "reactrenderdom",
+		"body": [
+			"ReactDOM.render(<$1 />, document.getElementById('app'));"
+		],
+		"description": "Render React"
+	},
+	"component": {
+		"prefix": "reactcomponent",
+		"body": [
+			"import React from 'react';",
+			"",
+			"class $1 extends React.Component {",
+			"	constructor(props) {",
+			"		super(props);",
+			"		this.state = { $2 };",
+			"	}",
+			"",
+			"	render () {",
+			"		return (",
+			"			<div></div>",
+			"		);",
+			"	}",
+			"}"
+			"",
+			"export default $1;"
+		],
+		"description": "Render React"
+	},
+	"expressreq": {
+		"prefix": "expressreq",
+		"body": [
+			"const express = require('express');"
+			"const app = express();"
+			""
+			"module.exports = app;",
+		],
+		"description": "Load express"
+	},
+	"expressget": {
+		"prefix": "expressget",
+		"body": [
+			"// GET ROUTE handler",
+			"app.get('/$1', (req, res, next) => {",
+			"	res.send($1);",
+			"});",
+		],
+		"description": "Render React"
+	},
+	"express-get": {
+		"prefix": "expressgetid",
+		"body": [
+			"// GET ROUTE with Id handler",
+			"app.get('/$1/:id', (req, res, next) => {",
+			"	const found$2 = __readIdFunction__(req.params.id, $1);",
+			"	if (found$2) {",
+			"		res.send(found$2);",
+			"	} else {",
+			"		res.status(404).send();",
+			"	}",
+			"});",
+		],
+		"description": "express get request"
+	},
+	"express-post": {
+		"prefix": "expresspost",
+		"body": [
+			"// POST ROUTE",
+			"app.post('/$1', (req, res, next) => {",
+			"	const received$2 = __createIdFunction__('$1', req.query);",
+			"	if (received$2) {",
+			"		$1.push(received$2);",
+			"		res.status(201).send(received$2);",
+			"	} else {",
+			"		res.status(400).send();",
+			"	}",
+			"});",
+		],
+		"description": "Render React"
+	},
+	"express-put": {
+		"prefix": "expressput",
+		"body": [
+			"// PUT ROUTE handler",
+			"app.put('/$1/:id', (req, res, next) => {",
+			"	const $2Index = getIndexById(req.params.id, $1);",
+			"	if ($2Index !== -1) {",
+			"	  __updateIdFunction__(req.params.id, req.query, $1);",
+			"	  res.send($1[$2Index]);",
+			"	} else {",
+			"	  res.status(404).send();",
+			"	}",
+			"});",
+		],
+		"description": "Render React"
+	},
+	"express-delete": {
+		"prefix": "expressdelete",
+		"body": [
+			"// DELETE handler:",
+			"app.delete('/$1/:id', (req, res, next) => {",
+			"	const $2Index = getIndexById(req.params.id, $1);",
+			"	if ($2Index !== -1) {",
+			"	  $1.splice($2Index, 1);",
+			"	  res.status(204).send();",
+			"	} else {",
+			"	  res.status(404).send();",
+			"	}",
+			"  });"
+		],
+		"description": "Render React"
+	},
+	"component-bind": {
+		"prefix": "compbind",
+		"body": [
+			"this.$1 = this.$1.bind(this);",
+		],
+		"description": "Code for binding a component function"
+	},
+	"express-router": {
+		"prefix": "expressrouter",
+		"body": [
+			"// require router.js and 'parentRouter.use' (connect) route, 1=route, 2=parrent route",
+			"const $1Router = require('./$1');",
+			"$2Router.use('/$1', $1Router);",
+			"",
+			"// move this to $1router.js file",
+			"const $1Router = require('express').Router();",
+			"module.exports = $1Router;",
+		],
+		"description": "Express router code"
+	},
+	"express-param": {
+		"prefix": "expressparam",
+		"body": [
+		"$1__sRouter.param('$1Id', (req, res, next, id) => {",
+		"	const $1 = __getIdFunction__('$1s', id);",
+		"	if ($1) {",
+		"	  req.$1 = $1;",
+		"	  next();",
+		"	} else {",
+		"	  res.status(404).send();",
+		"	}",
+		"});",
+		],
+		"description": "Express paramater"
+	},
+	
+}
